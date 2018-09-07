@@ -68,8 +68,9 @@ alias ws='cd /Users/arelaxend/hubiC/workspace'
 alias gitupdate='git add . && git commit -m "update" && git push origin master'
 s3lambda() {
   package="target/${1}-lambda_deployment_package_assembly.zip"
-  echo ${package}
-  aws s3 cp "${package}" s3://faystextapp/
+  newname="target/${1}.zip"
+  mv ${package} ${newname}
+  aws s3 cp "${newname}" s3://faystextapp/
 }
 
 export NVM_DIR="$HOME/.nvm"
