@@ -1,0 +1,77 @@
+set -o vi
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
+
+#general
+alias c='reset'
+alias g='git'
+alias cd..='cd ..'
+alias reload="cp ~/bash_profile ~/.bash_profile && source ~/.bash_profile && echo ~/.bash_profile resourced"
+alias ports_listening="sudo lsof -i -P | grep -i 'listen'"
+
+#directory listing
+alias ols='ls -C'
+alias l='ls -alAGhp'
+alias ll='ls -l'
+alias lsa='ls -la'
+alias lsh='ls -lh'
+alias lsah='ls -lah'
+alias h='history'
+alias j="jobs -l"
+alias la='ls -A'
+alias _='cd -'
+
+#git related
+alias gs='git status'
+alias gss='git status -sb'
+alias ga='git add'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gbv='git branch -v'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gpl='git pull'
+alias gplo='git pull origin'
+alias gplom='git pull origin master'
+alias gplhm='git pull heroku master'
+alias gp='git push'
+alias gpo='git push origin'
+alias gpom='git push origin master'
+alias gph='git push heroku'
+alias gphm='git push heroku master'
+alias gf='git fetch'
+alias gr='git rebase'
+alias gch='git checkout $@'
+alias gchm='git checkout master'
+alias gst='git stash'
+alias gsta='git stash apply'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gstc='git stash clear'
+alias gvr='git svn rebase'
+alias gvf='git svn fetch'
+alias gvc='git svn dcommit'
+alias gcm='git commit -m'
+alias gcam='git commit -a -m'
+alias gca='git commit --amend'
+alias grh='git reset --hard'
+alias gedm='git edit -m'
+alias gedc='git edit -c'
+alias gedu='git edit -u'
+alias gt='git track'
+
+# Personal
+alias ws='cd /Users/arelaxend/hubiC/workspace'
+alias gitupdate='git add . && git commit -m "update" && git push origin master'
+s3lambda() {
+  package="target/${1}-lambda_deployment_package_assembly.zip"
+  echo ${package}
+  aws s3 cp "${package}" s3://faystextapp/
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
