@@ -71,6 +71,7 @@ s3lambda() {
   newname="target/${1}.zip"
   mv ${package} ${newname}
   aws s3 cp "${newname}" s3://faystextapp/
+  aws lambda update-function-code --function-name ${2} --s3-bucket faystextapp --s3-key "${newname}"
 }
 
 export NVM_DIR="$HOME/.nvm"
